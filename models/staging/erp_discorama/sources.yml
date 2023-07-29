@@ -1,0 +1,17 @@
+version: 2
+
+sources:
+  - name: erp
+    database: discorama-dw
+    schema: erp_discorama
+    description: fonte de dados do ERP Discorama
+    tables:
+
+      - name: actor
+        description: Tabela dimensão cadastro de atores
+        columns:
+          - name: actor_id
+            description: Chave primária da tabela.
+            tests:
+              - unique
+              - not_null
