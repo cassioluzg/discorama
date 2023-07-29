@@ -7,10 +7,120 @@ sources:
     description: fonte de dados do ERP Discorama
     tables:
 
+### Mart filmes ###
+      - name: film
+        description: tabela dimensão dos filmes
+        columns:
+          - name: film_id
+            description: Chave primária da tabela.
+            tests:
+              - unique
+              - not_null
+
+      - name: film_actor
+        description: tabela intermediaria entre film e actor
+
       - name: actor
         description: Tabela dimensão cadastro de atores
         columns:
           - name: actor_id
+            description: Chave primária da tabela.
+            tests:
+              - unique
+              - not_null
+
+      - name: film_category
+        description: tabela intermediaria entre film e categoria
+
+      - name: category
+        description: Tabela de categoria dos filmes
+        columns:
+          - name: category_id
+            description: Chave primária da tabela.
+            tests:
+              - unique
+              - not_null
+
+### Mart endereço ###
+      - name: address
+        description: Tabela dimensao de endereços
+        columns:
+          - name: address_id
+            description: Chave primária da tabela.
+            tests:
+              - unique
+              - not_null
+
+      - name: city
+        description: Tabela com cidades, compondo o endereço.
+        columns:
+          - name: city_id
+            description: Chave primária da tabela.
+            tests:
+              - unique
+              - not_null
+
+      - name: country
+        description: xx
+        columns:
+          - name: country_id
+            description: Chave primária da tabela.
+            tests:
+              - unique
+              - not_null
+
+### Mart Clientes ###
+      - name: customer
+        description: Tabela dimensão do cadastro de clientes
+        columns:
+          - name: customer_id
+            description: Chave primária da tabela.
+            tests:
+              - unique
+              - not_null
+
+### Mart Funcionários
+      - name: staff
+        description: Tabela dimensão do cadastro de funcionários
+        columns:
+          - name: staff_id
+            description: Chave primária da tabela.
+            tests:
+              - unique
+
+### Mart Lojas
+      - name: store
+        description: Tabela dimensão do cadastro das lojas/unidades.
+        columns:
+          - name: store_id
+            description: Chave primária da tabela.
+            tests:
+              - unique
+              - not_null
+
+### Tabelas fato ###
+      - name: inventory
+        description: Tabela fato com o inventário dos filmes.
+        columns:
+          - name: inventory_id
+            description: Chave primária da tabela.
+            tests:
+              - unique
+              - not_null
+
+      - name: payment
+        description: Tabela fato com registro único de cada pagamento realizado.
+        columns:
+          - name: payment_id
+            description: Chave primária da tabela.
+            tests:
+              - unique
+              - not_null
+
+      - name: rental
+        description: Tabela fato com registro únco de cada aluguel realizado.
+        columns:
+          - name: rental_id
             description: Chave primária da tabela.
             tests:
               - unique
