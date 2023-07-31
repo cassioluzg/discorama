@@ -7,7 +7,6 @@ with
             , cast(staff_id as int) as funcionario_id
             , cast(rental_date as date) as data_locacao
             , cast(return_date as date) as data_retorno
-            , DATE_DIFF(return_date, rental_date, day) as duracao_locacao
         
         from {{ source('erp', 'rental') }}
     )
