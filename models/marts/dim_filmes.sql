@@ -4,16 +4,6 @@ with
         from {{ ref('stg_erp__filme') }}
     )
 
-    , filme_ator as(
-        select *
-        from {{ ref('stg_erp__filme_ator') }}
-    )
-
-    , ator as(
-        select *
-        from {{ ref('stg_erp__atores') }}
-    )
-
     , filme_categoria as(
         select *
         from {{ ref('stg_erp__filme_categoria') }}
@@ -27,10 +17,8 @@ with
     , join_filme as(
         select
             cast(filme.filme_id as int ) as filme_id
-            , cast(filme_ator.ator_id as int ) as ator_id
             , cast(filme_categoria.categoria_id  as int ) as categoria_id
             , cast(filme.filme_nome as string ) as nome_filme
-            , cast(ator.ator_nome as string ) as nome_ator
             , cast(categoria.categoria_nome as string ) as categoria_filme
             , cast(filme.avalicao as string ) as avaliacao
             , cast(filme.ano_lancamento as int ) as ano_lancamento
@@ -38,8 +26,6 @@ with
             , cast(filme.custo_reposicao as decimal ) as custo_reposicao
 
         from filme
-        left join filme_ator on filme.filme_id = filme_ator.filme_id
-        left join ator on filme_ator.ator_id = ator.ator_id
         left join filme_categoria on filme.filme_id = filme_categoria.filme_id
         left join categoria on filme_categoria.categoria_id = categoria.categoria_id
     )

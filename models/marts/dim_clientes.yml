@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: dim_cliente
+    description: Dimensão Clientes da Discorama
+    columns:
+      - name: cliente_id
+        description: Chave primária da tabela.
+        tests:
+          - unique
+          - not_null

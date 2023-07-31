@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: dim_filmes
+    description: Dimensão filmes da Discorama
+    columns:
+      - name: filme_id
+        description: Chave primária da tabela.
+        tests:
+          - unique
+          - not_null
