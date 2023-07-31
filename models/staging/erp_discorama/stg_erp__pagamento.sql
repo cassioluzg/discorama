@@ -12,3 +12,4 @@ with
 
 select *
 from source_pagamento
+where locacao_id <> 4591
